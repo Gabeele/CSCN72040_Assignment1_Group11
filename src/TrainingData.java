@@ -1,35 +1,39 @@
+import java.io.File;
+import java.util.*;
 
-public class TrainingData {
+public class TrainingData extends DataPoint{
 
-	private double x;
-	private double y;
-	private double z;
-	private int orientation;
+	private Vector<DataPoint> trainedData = new Vector<DataPoint>();
 	
-	public enum Orientation {ERROR, FACE_UP, FACE_DOWN, PORTRAIT, PORTRAIT_UPSIDEDOWN, LANDSCAPE_LEFT, LANDSCAPE_RIGHT}
+	private String fileName = "trainingData.txt";
+	
+	public void readData() {
+		
+		try {
+			File trainFile = new File(fileName);
+			
+			Scanner reader = new Scanner(fileName);
+			
+			while(reader.hasNextLine()) {
+				DataPoint point = new DataPoint();
+				
+				String data = reader.nextLine();
+				
+				 String[] parseData = data.split(",");
+				 
+				 point.setX(Double.parseDouble(parseData[0]));
+				 point.setY(Double.parseDouble(parseData[1]));
+				 point.setZ(Double.parseDouble(parseData[2]));
+				 point.setOrientation(Integer.parseInt(parseData[3]));
+			
+				 trainedData.add(point);
+				 
+			}
+			
+		}catch(Exception e) {
+			System.out.println("Error reading Trained Data file.");
+		}
 
-	public double getY() {
-		return y;
-	}
-
-	public void setY(double y) {
-		this.y = y;
-	}
-
-	public double getX() {
-		return x;
-	}
-
-	public void setX(double x) {
-		this.x = x;
-	}
-
-	public double getZ() {
-		return z;
-	}
-
-	public void setZ(double z) {
-		this.z = z;
 	}
 	
 	
