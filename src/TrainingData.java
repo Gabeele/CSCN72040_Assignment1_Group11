@@ -3,7 +3,7 @@ import java.util.*;
 
 public class TrainingData extends DataPoint{
 
-	private Vector<DataPoint> trainedData = new Vector<DataPoint>();
+	public Vector<DataPoint> trainedData = new Vector<DataPoint>();
 	
 	private String fileName = "trainingData.txt";
 	
