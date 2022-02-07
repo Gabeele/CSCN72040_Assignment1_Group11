@@ -4,9 +4,9 @@ public class DataPoint {
 	private double x;
 	private double y;
 	private double z;
-	private int orientation;
+	private int orientation = 0;
 	
-	public enum Orientation {ERROR, FACE_UP, FACE_DOWN, PORTRAIT, PORTRAIT_UPSIDEDOWN, LANDSCAPE_LEFT, LANDSCAPE_RIGHT}
+	public enum Orientation {UNKNOWN, FACE_UP, FACE_DOWN, PORTRAIT, PORTRAIT_UPSIDEDOWN, LANDSCAPE_LEFT, LANDSCAPE_RIGHT}
 
 	DataPoint(){
 	}

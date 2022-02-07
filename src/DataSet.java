@@ -1,13 +1,11 @@
 import java.io.File;
 import java.util.*;
 
-public class TrainingData extends DataPoint{
+public class DataSet extends DataPoint{
 
-	public Vector<DataPoint> trainedData = new Vector<DataPoint>();
+	public Vector<DataPoint> dataSet = new Vector<DataPoint>();
 	
-	private String fileName = "trainingData.txt";
-	
-	public void readData() {
+	public void readData(String fileName) {
 		
 		try {
 			File trainFile = new File(fileName);
@@ -24,9 +22,12 @@ public class TrainingData extends DataPoint{
 				 point.setX(Double.parseDouble(parseData[0]));
 				 point.setY(Double.parseDouble(parseData[1]));
 				 point.setZ(Double.parseDouble(parseData[2]));
-				 point.setOrientation(Integer.parseInt(parseData[3]));
+				 
+				 if (parseData.length == 4) {
+					 point.setOrientation(Integer.parseInt(parseData[3]));
+				 }
 			
-				 trainedData.add(point);
+				 dataSet.add(point);
 				 
 			}
 			

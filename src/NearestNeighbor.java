@@ -1,17 +1,24 @@
-import java.io.*;
-import java.util.*;
 import java.lang.Math;
 
-public class NearestNeighbor extends LearningModel {
+public class NearestNeighbor extends Classifiers {
+	
+	boolean PredictDataSet () {
+		
+		for (int i=0; i < unknownData.dataSet.size(); i++) {
+			PredictPoint(unknownData.dataSet.elementAt(i));
+		}
+		
+		return true;
+	}
 
-	boolean Predict (DataPoint dataPoint) {
+	boolean PredictPoint (DataPoint dataPoint) {
 				
 		double closestDistance =  Double.POSITIVE_INFINITY, currDistance = Double.POSITIVE_INFINITY;
 		int indexClosest = -1;
 		
-		for (int i = 0; i < td.trainedData.size(); i++) {
+		for (int i = 0; i < td.dataSet.size(); i++) {
 	
-			currDistance = distanceBetweenDataPoints(dataPoint, td.trainedData.elementAt(i));
+			currDistance = distanceBetweenDataPoints(dataPoint, td.dataSet.elementAt(i));
 			if (currDistance < closestDistance) {
 				closestDistance = currDistance;
 				indexClosest = i;
@@ -19,7 +26,7 @@ public class NearestNeighbor extends LearningModel {
 			
 		}
 		
-		dataPoint.setOrientation(td.trainedData.elementAt(indexClosest).getOrientation());
+		dataPoint.setOrientation(td.dataSet.elementAt(indexClosest).getOrientation());
 		
 		return false;
 		
