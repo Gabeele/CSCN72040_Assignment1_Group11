@@ -1,7 +1,8 @@
 import java.util.*;
 
-public class Classifiers  {
+public abstract class Classifiers extends MachineLearning {
 	
-	protected DataSet td;
-	protected DataSet unknownData;
+	abstract boolean PredictPoint(DataPoint dataPoint);
+	
+	abstract double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint);
 }

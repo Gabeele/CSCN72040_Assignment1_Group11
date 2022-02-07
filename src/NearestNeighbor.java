@@ -2,23 +2,23 @@ import java.lang.Math;
 
 public class NearestNeighbor extends Classifiers {
 	
-	boolean PredictDataSet () {
-		
-		for (int i=0; i < unknownData.dataSet.size(); i++) {
-			PredictPoint(unknownData.dataSet.elementAt(i));
-		}
-		
-		return true;
-	}
-
+	/*
+	 * boolean PredictDataSet () {
+	 * 
+	 * for (int i=0; i < unknownData.dataSet.size(); i++) {
+	 * PredictPoint(unknownData.dataSet.elementAt(i)); }
+	 * 
+	 * return true; }
+	 */
+	@Override
 	boolean PredictPoint (DataPoint dataPoint) {
 				
 		double closestDistance =  Double.POSITIVE_INFINITY, currDistance = Double.POSITIVE_INFINITY;
 		int indexClosest = -1;
 		
-		for (int i = 0; i < td.dataSet.size(); i++) {
+		for (int i = 0; i < trainingDataSet.dataSet.size(); i++) {
 	
-			currDistance = distanceBetweenDataPoints(dataPoint, td.dataSet.elementAt(i));
+			currDistance = distanceBetweenDataPoints(dataPoint, trainingDataSet.dataSet.elementAt(i));
 			if (currDistance < closestDistance) {
 				closestDistance = currDistance;
 				indexClosest = i;
@@ -26,12 +26,13 @@ public class NearestNeighbor extends Classifiers {
 			
 		}
 		
-		dataPoint.setOrientation(td.dataSet.elementAt(indexClosest).getOrientation());
+		dataPoint.setOrientation(trainingDataSet.dataSet.elementAt(indexClosest).getOrientation());
 		
 		return false;
 		
 	}
 	
+	@Override
 	double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint) {
 		
 		// sqrt((x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2)
