@@ -33,6 +33,36 @@ public class DataHandler
 
 		return fileDataSet;
 	}
+	
+	static void datasetToFile(DataSet ds, String fileName) 
+	{
+		
+		try
+		{
+			File file = new File(fileName);
+
+			Scanner reader = new Scanner(file);
+
+			while (reader.hasNextLine())
+			{
+				DataPoint point = new DataPoint();
+
+				String data = reader.nextLine();
+				point = coordinatesToDataPoint(data);
+
+				fileDataSet.addPoint(point);
+			}
+			reader.close();
+
+		} catch (Exception e)
+		{
+			System.out.println("Error reading Trained Data file.");
+		}
+
+		return fileDataSet;
+		
+		
+	}
 
 	static DataPoint coordinatesToDataPoint(String coordinates)
 	{

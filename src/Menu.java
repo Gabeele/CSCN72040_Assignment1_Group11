@@ -49,6 +49,8 @@ public class Menu
 		String inputString = inputScanner.nextLine();
 
 		DataHandler.fileToDataSet(inputString);
+		
+		inputScanner.close();
 	}
 
 	static void enterData()
@@ -59,5 +61,7 @@ public class Menu
 		String inputString = inputScanner.nextLine();
 
 		DataHandler.coordinatesToDataPoint(inputString);
+		
+		inputScanner.close();
 	}
 }
