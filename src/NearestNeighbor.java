@@ -16,9 +16,9 @@ public class NearestNeighbor extends Classifiers {
 		double closestDistance =  Double.POSITIVE_INFINITY, currDistance = Double.POSITIVE_INFINITY;
 		int indexClosest = -1;
 		
-		for (int i = 0; i < trainingDataSet.dataSet.size(); i++) {
+		for (int i = 0; i < trainingDataSet.points.size(); i++) {
 	
-			currDistance = distanceBetweenDataPoints(dataPoint, trainingDataSet.dataSet.elementAt(i));
+			currDistance = distanceBetweenDataPoints(dataPoint, trainingDataSet.points.elementAt(i));
 			if (currDistance < closestDistance) {
 				closestDistance = currDistance;
 				indexClosest = i;
@@ -26,7 +26,7 @@ public class NearestNeighbor extends Classifiers {
 			
 		}
 		
-		dataPoint.setOrientation(trainingDataSet.dataSet.elementAt(indexClosest).getOrientation());
+		dataPoint.setOrientation(trainingDataSet.points.elementAt(indexClosest).getOrientation());
 		
 		return false;
 		
