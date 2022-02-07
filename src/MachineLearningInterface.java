@@ -1,4 +1,5 @@
 
-public interface MachineLearningInterface {
+public interface MachineLearningInterface
+{
 
 }

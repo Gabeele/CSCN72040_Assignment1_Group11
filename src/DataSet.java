@@ -1,17 +1,19 @@
 import java.io.File;
 import java.util.*;
 
-public class DataSet{
+public class DataSet
+{
 
 	public Vector<DataPoint> points;
 
-	public DataSet() {
+	public DataSet()
+	{
 		this.points = new Vector<DataPoint>();
 	}
-	
+
 	public void addPoint(DataPoint point)
 	{
 		points.add(point);
 	}
-		
+
 }

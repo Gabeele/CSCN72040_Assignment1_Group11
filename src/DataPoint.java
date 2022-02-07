@@ -1,49 +1,59 @@
 
-public class DataPoint {
+public class DataPoint
+{
 
 	private double x;
 	private double y;
 	private double z;
 	private int orientation = 0;
-	
-	public enum Orientation {UNKNOWN, FACE_UP, FACE_DOWN, PORTRAIT, PORTRAIT_UPSIDEDOWN, LANDSCAPE_LEFT, LANDSCAPE_RIGHT}
 
-	DataPoint(){
+	public enum Orientation
+	{
+		UNKNOWN, FACE_UP, FACE_DOWN, PORTRAIT, PORTRAIT_UPSIDEDOWN, LANDSCAPE_LEFT, LANDSCAPE_RIGHT
 	}
-	
-	public double getY() {
+
+	DataPoint()
+	{
+	}
+
+	public double getY()
+	{
 		return y;
 	}
 
-	public void setY(double y) {
+	public void setY(double y)
+	{
 		this.y = y;
 	}
 
-	public double getX() {
+	public double getX()
+	{
 		return x;
 	}
 
-	public void setX(double x) {
+	public void setX(double x)
+	{
 		this.x = x;
 	}
 
-	public double getZ() {
+	public double getZ()
+	{
 		return z;
 	}
 
-	public void setZ(double z) {
+	public void setZ(double z)
+	{
 		this.z = z;
 	}
 
-	public int getOrientation() {
+	public int getOrientation()
+	{
 		return orientation;
 	}
 
-	public void setOrientation(int orientation) {
+	public void setOrientation(int orientation)
+	{
 		this.orientation = orientation;
 	}
-	
-	
-	
-	
+
 }

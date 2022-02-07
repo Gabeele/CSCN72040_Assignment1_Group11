@@ -1,9 +1,12 @@
 import java.util.Scanner;
 
-public class Menu {
+public class Menu
+{
 
-	static void printMenu() {
-		do {
+	static void printMenu()
+	{
+		do
+		{
 			System.out.println("Welcome to the program =]");
 			System.out.println("1. For entering a file name");
 			System.out.println("2. For entering a set of data");
@@ -11,20 +14,25 @@ public class Menu {
 		} while (Menu.select());
 	}
 
-	static boolean select() {
+	static boolean select()
+	{
 		Scanner inputScanner = new Scanner(System.in);
 		int inputInt = inputScanner.nextInt();
 
-		switch (inputInt) {
-		case 1: {
+		switch (inputInt)
+		{
+		case 1:
+		{
 			Menu.enterFile();
 			break;
 		}
-		case 2: {
+		case 2:
+		{
 			Menu.enterData();
 			break;
 		}
-		case 3: {
+		case 3:
+		{
 			return false;
 		}
 		default:
@@ -33,7 +41,8 @@ public class Menu {
 		return true;
 	}
 
-	static void enterFile() {
+	static void enterFile()
+	{
 		System.out.println("Enter the name of the file you wish to read:");
 
 		Scanner inputScanner = new Scanner(System.in);
@@ -42,7 +51,8 @@ public class Menu {
 		DataHandler.fileToDataSet(inputString);
 	}
 
-	static void enterData() {
+	static void enterData()
+	{
 		System.out.println("Enter your data: i.e. 1,2,3 ");
 
 		Scanner inputScanner = new Scanner(System.in);
