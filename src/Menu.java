@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Menu
@@ -104,6 +105,25 @@ public class Menu
 		
 		PrintPredictedOrientation(orientation);
 	}
+	
+	static void enterTrainingData() {
+		
+		System.out.println("Enter the training data file:");
+		
+		try {
+		
+			String inputString = inputScanner.next();
+	
+			Controller.fileController(inputString);
+			
+				
+		}catch (Exception e)
+		{
+			System.out.println("Error in user input");
+		}
+		
+	}
+
 
 	static ClassifierNames pickClassifier(){
 		
@@ -136,24 +156,6 @@ public class Menu
 		
 		System.out.println("The device with those accelerometer vectors is oriented as " + getOrientationString(orientation));
 
-		
-	}
-
-	static void enterTrainingData() {
-		
-		System.out.println("Enter the training data file:");
-		
-		try {
-		
-			String inputString = inputScanner.next();
-	
-			Controller.fileController(inputString);
-			
-				
-		}catch (Exception e)
-		{
-			System.out.println("Error in user input");
-		}
 		
 	}
 
