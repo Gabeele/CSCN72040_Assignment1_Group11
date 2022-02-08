@@ -2,28 +2,36 @@ import java.util.Scanner;
 
 public class Menu
 {
-	
+
 	private static Scanner inputScanner = new Scanner(System.in);
 
 	static boolean printMenu()
 	{
+		System.out.println("\n------------------------------------------------------------");
 		System.out.println("Welcome to the program =]");
-		System.out.println("1. For entering a file name");
-		System.out.println("2. For entering a set of data");
-		System.out.println("3. To import training data ");
-		System.out.println("4. TO EXIT");
-			
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("    1. To calculate unknown data of a file (unknownData.txt)");
+		System.out.println("    2. To calculate unknown single point");
+		System.out.println("    3. To import training data (trainingData.txt)");
+		System.out.println("    4. TO EXIT");
+
 		return select();
+	}
+	
+	static void printClassifierList() {
+		System.out.println("Select the classifier:");
+		System.out.println("1. Nearest Neighbor");
+		System.out.println("2. Another Classifier");
 	}
 
 	static boolean select()
 	{
 		String input;
-		try 
+		try
 		{
-			
+
 			input = inputScanner.next();
-			
+
 			switch (Integer.parseInt(input))
 			{
 			case 1:
@@ -33,7 +41,7 @@ public class Menu
 			}
 			case 2:
 			{
-				enterDataManually();
+				enterPoint();
 				break;
 			}
 			case 3:
@@ -46,128 +54,154 @@ public class Menu
 				return false;
 			}
 			default:
-				//throw new IllegalArgumentException("Unexpected value");
+				throw new IllegalArgumentException("Unexpected value");
 			}
-		} catch (NumberFormatException e)
+		} catch (Exception e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Error in user input");
 		}
-		
+
 		return true;
 	}
 
 	static void enterFile()
 	{
-		System.out.println("Enter the name of the file you wish to read:");
+		System.out.println("Enter the file name of unknown data to determine orientation:");
 
-		String inputString = inputScanner.next();
-		ClassifierNames classifier = Menu.pickClassifier();
+		try
+		{
+			String inputString = inputScanner.next();
 
-		Controller.fileController(inputString, classifier);
-		
-		System.out.println("Data exported");
+			ClassifierNames classifier = Menu.pickClassifier();
 
-		
+			Controller.fileController(inputString, classifier);
+
+		} catch (Exception e)
+		{
+			System.out.println("Error in user input");
+		}
+
 	}
-	
-	static void enterDataManually() {
-		String data = Menu.enterData();
+
+	static void enterPoint()
+	{
+		String inputString = null;
+		
+		System.out.println("Enter your vector separated by commas and no spaces: i.e. 1,2,3 ");
+		
+		try
+		{
+			inputString = inputScanner.next();
+			
+		} catch (Exception e)
+		{
+			System.out.println("Error in user input");
+		}
+				
 		ClassifierNames classifier = Menu.pickClassifier();
-		int orientation = Controller.coordinateController(data, classifier);
+		
+		int orientation = Controller.coordinateController(inputString, classifier);
+		
 		PrintPredictedOrientation(orientation);
 	}
 
-	static String enterData()
-	{
-		System.out.println("Enter your X vector: i.e. 1,2,3 ");
+	static ClassifierNames pickClassifier(){
+		
+		int inputInt=0;
+		ClassifierNames classifier = null;
+		
+		printClassifierList();
+		
+		try
+		{
+			inputInt =  inputScanner.nextInt();
+			
+			if (inputInt == 1)
+			{
+				classifier = ClassifierNames.NEAREST_NEIGHBORS;
+			} else
+			{
+				classifier = ClassifierNames.ANOTHER_CLASSIFIER;
+			}
 
-		String inputString = inputScanner.next();
-		
-		
-		return inputString;
-	}
-	
-	static ClassifierNames pickClassifier() {
-		System.out.println("Select the classifier:");
-		System.out.println("1. Nearest Neighbor");
-		System.out.println("2. Another Classifier");
-		
-
-		int userInput = inputScanner.nextInt();
-
-		
-		ClassifierNames classifier;
-		if (userInput == 1) {
-			classifier = ClassifierNames.NEAREST_NEIGHBORS;
+		} catch (Exception e)
+		{
+			System.out.println("Error in user input");
 		}
-		else {
-			classifier = ClassifierNames.ANOTHER_CLASSIFIER;
-		}
-		
 		return classifier;
 	}
-	
-	static void PrintPredictedOrientation(int orientation) {
-		System.out.println("The device with those accelerometer vectors is oriented as " );
+
+	static void PrintPredictedOrientation(int orientation)
+	{
 		
-		switch (orientation) {
-		case 1:
-		{
-			System.out.print("FACE UP");
-			break;
-		}
-		case 2:
-		{
-			System.out.print("FACE DOWN");
-			break;
-		}
-		case 3:
-		{
-			System.out.print("PORTRAIT");
-			break;
-		}
-		case 4:
-		{
-			System.out.print("PORTRAIT UPSIDE DOWN");
-			break;
-		}
-		case 5:
-		{
-			System.out.print("LANDSCAPE LEFT");
-			break;
-		}
-		case 6:
-		{
-			System.out.print("LANDSCAPE RIGHT");
-			break;
-		}
-		default:
-		{
-			System.out.print("UNKNOWN");
-			break;
-		}
-		}
-		return;
+		System.out.println("The device with those accelerometer vectors is oriented as " + getOrientationString(orientation));
+
+		
 	}
-	
 
 	static void enterTrainingData() {
 		
-		System.out.println("Enter the name of the file you wish to read:");
-
-		String inputString = inputScanner.next();
-
-		Controller.fileController(inputString);
+		System.out.println("Enter the training data file:");
 		
-		System.out.println("Data imported");
+		try {
 		
+			String inputString = inputScanner.next();
 	
+			Controller.fileController(inputString);
+			
+				
+		}catch (Exception e)
+		{
+			System.out.println("Error in user input");
+		}
+		
 	}
+
+	public static String getOrientationString(int orientation) {
+		switch (orientation)
+		{
+		case 1:
+		{
+			return("FACE UP");
+
+		}
+		case 2:
+		{
+			return("FACE DOWN");
+
+		}
+		case 3:
+		{
+			return("PORTRAIT");
+		}
+		case 4:
+		{
+			return("PORTRAIT UPSIDE DOWN");
+
+		}
+		case 5:
+		{
+			return("LANDSCAPE LEFT");
+
+		}
+		case 6:
+		{
+			return("LANDSCAPE RIGHT");
+
+		}
+		default:
+		{
+			return("UNKNOWN");
+
+
+		}
+		}
+		}
 	
-	static void closeInputScanner() {
-	
+	static void closeInputScanner()
+	{
+
 		inputScanner.close();
 	}
-	
+		
 }

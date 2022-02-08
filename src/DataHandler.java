@@ -28,7 +28,7 @@ public class DataHandler
 
 		} catch (Exception e)
 		{
-			System.out.println("Error reading Trained Data file.");
+			System.out.println("Error reading file data.");
 		}
 
 		return fileDataSet;

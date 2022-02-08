@@ -7,11 +7,6 @@ public class DataPoint
 	private double z;
 	private int orientation = 0;
 
-	public enum Orientation
-	{
-		UNKNOWN, FACE_UP, FACE_DOWN, PORTRAIT, PORTRAIT_UPSIDEDOWN, LANDSCAPE_LEFT, LANDSCAPE_RIGHT
-	}
-
 	DataPoint()
 	{
 	}

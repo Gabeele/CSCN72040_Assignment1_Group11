@@ -1,5 +1,6 @@
 
 public enum ClassifierNames {
 	NEAREST_NEIGHBORS,
-	ANOTHER_CLASSIFIER
+	ANOTHER_CLASSIFIER;
+
 }
