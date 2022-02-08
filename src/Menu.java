@@ -2,51 +2,58 @@ import java.util.Scanner;
 
 public class Menu
 {
-
-	private static Scanner inputScanner = new Scanner(System.in);
 	
-	static void printMenu()
+	private static Scanner inputScanner = new Scanner(System.in);
+
+	static boolean printMenu()
 	{
-		do
-		{
-			System.out.println("Welcome to the program =]");
-			System.out.println("1. For entering a file name");
-			System.out.println("2. For entering a set of data");
-			System.out.println("3. To import training data ");
-			System.out.println("4. TO EXIT");
-		} while (select());
+		System.out.println("Welcome to the program =]");
+		System.out.println("1. For entering a file name");
+		System.out.println("2. For entering a set of data");
+		System.out.println("3. To import training data ");
+		System.out.println("4. TO EXIT");
+			
+		return select();
 	}
 
 	static boolean select()
 	{
-		
-		String input = inputScanner.next();
-		
-		switch (Integer.parseInt(input))
+		String input;
+		try 
 		{
-		case 1:
-		{
-			enterFile();
-			break;
-		}
-		case 2:
-		{
-			enterDataManually();
-			break;
-		}
-		case 3:
-		{
-			enterTrainingData();
-			break;
-		}
-		case 4:
-		{
-			return false;
-		}
-		default:
-			//throw new IllegalArgumentException("Unexpected value");
-		}
 			
+			input = inputScanner.next();
+			
+			switch (Integer.parseInt(input))
+			{
+			case 1:
+			{
+				enterFile();
+				break;
+			}
+			case 2:
+			{
+				enterDataManually();
+				break;
+			}
+			case 3:
+			{
+				enterTrainingData();
+				break;
+			}
+			case 4:
+			{
+				return false;
+			}
+			default:
+				//throw new IllegalArgumentException("Unexpected value");
+			}
+		} catch (NumberFormatException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return true;
 	}
 
@@ -54,8 +61,7 @@ public class Menu
 	{
 		System.out.println("Enter the name of the file you wish to read:");
 
-		Scanner inputScanner = new Scanner(System.in);
-		String inputString = inputScanner.nextLine();
+		String inputString = inputScanner.next();
 		ClassifierNames classifier = Menu.pickClassifier();
 
 		Controller.fileController(inputString, classifier);
@@ -63,7 +69,6 @@ public class Menu
 		System.out.println("Data exported");
 
 		
-		inputScanner.close();
 	}
 	
 	static void enterDataManually() {
@@ -77,10 +82,8 @@ public class Menu
 	{
 		System.out.println("Enter your X vector: i.e. 1,2,3 ");
 
-		Scanner inputScanner = new Scanner(System.in);
-		String inputString = inputScanner.nextLine();
+		String inputString = inputScanner.next();
 		
-		inputScanner.close();
 		
 		return inputString;
 	}
@@ -90,9 +93,9 @@ public class Menu
 		System.out.println("1. Nearest Neighbor");
 		System.out.println("2. Another Classifier");
 		
-		Scanner inputScanner = new Scanner(System.in);
+
 		int userInput = inputScanner.nextInt();
-		inputScanner.close();
+
 		
 		ClassifierNames classifier;
 		if (userInput == 1) {
@@ -153,13 +156,18 @@ public class Menu
 		
 		System.out.println("Enter the name of the file you wish to read:");
 
-		Scanner inputScanner = new Scanner(System.in);
-		String inputString = inputScanner.nextLine();
+		String inputString = inputScanner.next();
 
 		Controller.fileController(inputString);
 		
 		System.out.println("Data imported");
 		
+	
+	}
+	
+	static void closeInputScanner() {
+	
 		inputScanner.close();
 	}
+	
 }

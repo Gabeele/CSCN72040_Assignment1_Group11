@@ -4,8 +4,15 @@ public class main
 
 	public static void main(String[] args)
 	{
+		boolean runFlag = true;
 		
-		Menu.printMenu();
+		do {
+			runFlag = Menu.printMenu();
+			
+			
+		}while(runFlag);
+		
+			Menu.closeInputScanner();
 		
 	}
 
