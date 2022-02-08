@@ -12,7 +12,7 @@ public class DataHandler
 		try
 		{
 			File file = new File(fileName);
-
+			
 			Scanner reader = new Scanner(file);
 
 			while (reader.hasNextLine())

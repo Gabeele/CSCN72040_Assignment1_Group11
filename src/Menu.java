@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Menu
 {
 
+	private static Scanner inputScanner = new Scanner(System.in);
+	
 	static void printMenu()
 	{
 		do
@@ -17,10 +19,10 @@ public class Menu
 
 	static boolean select()
 	{
-		Scanner inputScanner = new Scanner(System.in);
-		int inputInt = inputScanner.nextInt();
-
-		switch (inputInt)
+		
+		String input = inputScanner.next();
+		
+		switch (Integer.parseInt(input))
 		{
 		case 1:
 		{
@@ -42,11 +44,9 @@ public class Menu
 			return false;
 		}
 		default:
-			inputScanner.close();
 			//throw new IllegalArgumentException("Unexpected value");
 		}
-		
-		inputScanner.close();
+			
 		return true;
 	}
 
