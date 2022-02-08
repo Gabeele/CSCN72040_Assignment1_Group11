@@ -1,21 +1,21 @@
 
-public class MachineLearning implements MachineLearningInterface
+public class MachineLearning 
 {
 
 	protected DataSet trainingDataSet;
 	
 	public int predictOrientation(DataPoint dataPoint, ClassifierNames classifier) {
 		
-		int orientation = -1;
+		int closestIndex = -1;
 		
 		if (classifier == ClassifierNames.NEAREST_NEIGHBORS) {
-			orientation = NearestNeighbor.Calculate(dataPoint, trainingDataSet);
+			closestIndex = NearestNeighbor.Calculate(dataPoint, trainingDataSet);
 		}
 		else if (classifier == ClassifierNames.ANOTHER_CLASSIFIER) {
-			orientation = AnotherClassifier.Calculate(dataPoint, trainingDataSet);
+			closestIndex = AnotherClassifier.Calculate(dataPoint, trainingDataSet);
 		}
 		
-		return orientation;
+		return trainingDataSet.points.elementAt(closestIndex).getOrientation();
 	}
 	
 	public void setTrainingData(DataSet dataSet) {

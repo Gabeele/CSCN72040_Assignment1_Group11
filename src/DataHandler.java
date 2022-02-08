@@ -42,7 +42,7 @@ public class DataHandler
 			
 			for (int i=0; i < ds.points.size(); i++) {
 				
-				file.write(ds.points.elementAt(i).getX() + "," + ds.points.elementAt(i).getY() + "," + ds.points.elementAt(i).getZ() + ds.points.elementAt(i).getOrientation());
+				file.write(ds.points.elementAt(i).getX() + "," + ds.points.elementAt(i).getY() + "," + ds.points.elementAt(i).getZ() + "," + ds.points.elementAt(i).getOrientation() + "\n");
 			}
 			file.close();
 		}
