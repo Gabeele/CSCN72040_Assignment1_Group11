@@ -35,6 +35,7 @@ public class Menu
 		case 3:
 		{
 			enterTrainingData();
+			break;
 		}
 		case 4:
 		{
@@ -42,7 +43,7 @@ public class Menu
 		}
 		default:
 			inputScanner.close();
-			throw new IllegalArgumentException("Unexpected value");
+			//throw new IllegalArgumentException("Unexpected value");
 		}
 		
 		inputScanner.close();
