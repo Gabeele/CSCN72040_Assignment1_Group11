@@ -1,5 +1,6 @@
 
 public interface MachineLearningInterface
 {
-	int predictOrientation(DataPoint dataPoint, ClassifierNames classifier);
+	public int predictOrientation(DataPoint dataPoint, ClassifierNames classifier);
+	public void setTrainingData(DataSet dataSet);
 }

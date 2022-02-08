@@ -2,9 +2,9 @@ import java.lang.Math;
 
 public class NearestNeighbor extends Classifiers
 {
-	public int Calculate(DataPoint dataPoint, DataSet trainingDataSet)
+	public static int Calculate(DataPoint dataPoint, DataSet trainingDataSet)
 	{
-
+		
 		double closestDistance = Double.POSITIVE_INFINITY, currDistance = Double.POSITIVE_INFINITY;
 		int indexClosest = -1;
 
@@ -24,7 +24,7 @@ public class NearestNeighbor extends Classifiers
 
 	}
 
-	protected double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint)
+	protected static double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint)
 	{
 
 		// sqrt((x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2)

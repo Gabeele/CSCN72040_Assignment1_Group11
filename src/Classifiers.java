@@ -1,9 +1,14 @@
 import java.util.*;
+import java.io.*;
 
-public abstract class Classifiers
+public class Classifiers
 {
 
-	public abstract int Calculate(DataPoint dataPoint, DataSet trainingDataSet);
+	public static int Calculate(DataPoint dataPoint, DataSet trainingDataSet) {
+		throw new IllegalArgumentException("Unexpected value");
+	}
 
-	protected abstract double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint);
+	protected static double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint) {
+		throw new IllegalArgumentException("Unexpected value");
+	}
 }
