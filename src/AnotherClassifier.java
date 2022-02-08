@@ -2,17 +2,16 @@
 public class AnotherClassifier extends Classifiers
 {
 
-	@Override
-	boolean PredictPoint(DataPoint dataPoint)
+	public static int Calculate(DataPoint dataPoint, DataSet trainingDataSet)
 	{
 
 		System.out.println("AnotherClassifier Predict method called");
 
-		return true;
+		return -1;
 	}
 
-	@Override
-	double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint)
+
+	protected static double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint)
 	{
 
 		System.out.println("AnotherClassifier distanceBetweenDataPoints method called");

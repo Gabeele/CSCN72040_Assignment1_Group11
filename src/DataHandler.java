@@ -1,4 +1,4 @@
-import java.io.File;
+import java.io.*;
 import java.util.Scanner;
 
 public class DataHandler
@@ -34,33 +34,21 @@ public class DataHandler
 		return fileDataSet;
 	}
 	
-	static void datasetToFile(DataSet ds, String fileName) 
+	static void dataSetToFile(DataSet ds, String fileName) 
 	{
 		
-		try
-		{
-			File file = new File(fileName);
-
-			Scanner reader = new Scanner(file);
-
-			while (reader.hasNextLine())
-			{
-				DataPoint point = new DataPoint();
-
-				String data = reader.nextLine();
-				point = coordinatesToDataPoint(data);
-
-				fileDataSet.addPoint(point);
+		try {
+			FileWriter file = new FileWriter(fileName);
+			
+			for (int i=0; i < ds.points.size(); i++) {
+				
+				file.write(ds.points.elementAt(i).getX() + "," + ds.points.elementAt(i).getY() + "," + ds.points.elementAt(i).getZ() + ds.points.elementAt(i).getOrientation());
 			}
-			reader.close();
-
-		} catch (Exception e)
-		{
-			System.out.println("Error reading Trained Data file.");
+			file.close();
 		}
-
-		return fileDataSet;
-		
+		catch(Exception e) {
+			System.out.println("Error writing Data file.");
+		}
 		
 	}
 

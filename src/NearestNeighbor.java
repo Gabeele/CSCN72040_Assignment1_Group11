@@ -2,17 +2,7 @@ import java.lang.Math;
 
 public class NearestNeighbor extends Classifiers
 {
-
-	/*
-	 * boolean PredictDataSet () {
-	 * 
-	 * for (int i=0; i < unknownData.dataSet.size(); i++) {
-	 * PredictPoint(unknownData.dataSet.elementAt(i)); }
-	 * 
-	 * return true; }
-	 */
-	@Override
-	boolean PredictPoint(DataPoint dataPoint)
+	public int Calculate(DataPoint dataPoint, DataSet trainingDataSet)
 	{
 
 		double closestDistance = Double.POSITIVE_INFINITY, currDistance = Double.POSITIVE_INFINITY;
@@ -30,14 +20,11 @@ public class NearestNeighbor extends Classifiers
 
 		}
 
-		dataPoint.setOrientation(trainingDataSet.points.elementAt(indexClosest).getOrientation());
-
-		return false;
+		return indexClosest;
 
 	}
 
-	@Override
-	double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint)
+	protected double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint)
 	{
 
 		// sqrt((x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2)

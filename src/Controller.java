@@ -1,6 +1,7 @@
 
 public class Controller
 {
+	
 
 	public static void coordinateController(String input)
 	{
