@@ -14,6 +14,12 @@ public class Controller
 
 	static private MachineLearning learningModel = new MachineLearning();
 	
+	/**
+	 * {@summary Facilitates the coordinates to a data point and prediction of orientation within the program}
+	 * @param input
+	 * @param classifier
+	 * @return
+	 */
 	public static int coordinateController(String input, ClassifierNames classifier)
 	{
 		DataPoint dp = DataHandler.coordinatesToDataPoint(input);
@@ -22,6 +28,11 @@ public class Controller
 		
 	}
 	
+	/**
+	 * {@summary Facilitates the creation of data sets based on the file name and classifier that it is provided}
+	 * @param filename
+	 * @param classifier
+	 */
 	public static void fileController(String filename, ClassifierNames classifier)
 	{
 
@@ -37,6 +48,10 @@ public class Controller
 		
 	}
 	
+	/**
+	 * {@summary Facilitates the creation of data sets based on the file name that it is provided}
+	 * @param filename
+	 */
 	public static void fileController(String filename)
 	{
 

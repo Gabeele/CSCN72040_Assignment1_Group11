@@ -14,7 +14,12 @@ import java.util.Scanner;
 
 public class DataHandler
 {
-
+	/**
+	 * {@summary Takes a filename, opens the file and reads it and takes the formatted data within and creates a new data set based
+	 * on the information within the file}
+	 * @param fileName
+	 * @return
+	 */
 	static DataSet fileToDataSet(String fileName)
 	{
 
@@ -45,6 +50,12 @@ public class DataHandler
 		return fileDataSet;
 	}
 	
+	/**
+	 * {@summary Does the inverse of file to data set, where you give a file name to be written to and a source dataset that the data
+	 *  is coming from}	
+	 * @param ds
+	 * @param fileName
+	 */
 	static void dataSetToFile(DataSet ds, String fileName) 
 	{
 		
@@ -63,6 +74,11 @@ public class DataHandler
 		
 	}
 
+	/**
+	 * {@summary Takes a specifically formatted string and parses the information which is then used to create a new data point that is returned}
+	 * @param coordinates
+	 * @return
+	 */
 	static DataPoint coordinatesToDataPoint(String coordinates)
 	{
 		String[] strArr = coordinates.split(",");
