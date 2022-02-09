@@ -14,8 +14,9 @@ public class main
 
 	public static void main(String[] args)
 	{
-		boolean runFlag = true;
+		boolean runFlag = true;	
 		
+		//The menu will be printed until the flag is changed to false
 		do {
 			runFlag = Menu.printMenu();
 			

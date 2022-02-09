@@ -17,11 +17,18 @@ public class DataSet
 
 	public Vector<DataPoint> points;
 
+	/**
+	 * Constructs the empty points 
+	 */
 	public DataSet()
 	{
 		this.points = new Vector<DataPoint>();
 	}
 
+	/**
+	 * Adds a point to the data set
+	 * @param point Single data point 
+	 */
 	public void addPoint(DataPoint point)
 	{
 		points.add(point);

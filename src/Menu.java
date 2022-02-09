@@ -16,6 +16,10 @@ public class Menu
 
 	private static Scanner inputScanner = new Scanner(System.in);
 
+	/**
+	 * Prints the welcome and menu screen
+	 * @return Boolean of the select function (False if user exits the program)
+	 */
 	static boolean printMenu()
 	{
 		System.out.println("\n------------------------------------------------------------");
@@ -29,12 +33,19 @@ public class Menu
 		return select();
 	}
 	
+	/**
+	 * Prints the list of classifiers
+	 */
 	static void printClassifierList() {
 		System.out.println("Select the classifier:");
 		System.out.println("1. Nearest Neighbor");
 		System.out.println("2. Another Classifier");
 	}
 
+	/**
+	 * The menu select functionality to determine which action the user chooses
+	 * @return
+	 */
 	static boolean select()
 	{
 		String input;
@@ -47,22 +58,22 @@ public class Menu
 			{
 			case 1:
 			{
-				enterFile();
+				enterFile();				//Enter in a unknown data file
 				break;
 			}
 			case 2:
 			{
-				enterPoint();
+				enterPoint();				//Enter in a single point
 				break;
 			}
 			case 3:
 			{
-				enterTrainingData();
+				enterTrainingData();		//Enter in the training data
 				break;
 			}
 			case 4:
 			{
-				return false;
+				return false;	//Returns false if user exists
 			}
 			default:
 				throw new IllegalArgumentException("Unexpected value");
@@ -72,9 +83,13 @@ public class Menu
 			System.out.println("Error in user input");
 		}
 
-		return true;
+		return true;	
 	}
 
+	
+	/**
+	 * Static function to enter in a unknown data file to create orientation points
+	 */
 	static void enterFile()
 	{
 		System.out.println("Enter the file name of unknown data to determine orientation:");
@@ -83,9 +98,9 @@ public class Menu
 		{
 			String inputString = inputScanner.next();
 
-			ClassifierNames classifier = Menu.pickClassifier();
+			ClassifierNames classifier = pickClassifier();
 
-			Controller.fileController(inputString, classifier);
+			Controller.fileController(inputString, classifier);	
 
 		} catch (Exception e)
 		{
@@ -94,6 +109,9 @@ public class Menu
 
 	}
 
+	/**
+	 * Static function to determine the orentation of a single point provided by the user
+	 */
 	static void enterPoint()
 	{
 		String inputString = null;
@@ -109,13 +127,16 @@ public class Menu
 			System.out.println("Error in user input");
 		}
 				
-		ClassifierNames classifier = Menu.pickClassifier();
+		ClassifierNames classifier = pickClassifier();
 		
 		int orientation = Controller.coordinateController(inputString, classifier);
 		
 		PrintPredictedOrientation(orientation);
 	}
 	
+	/**
+	 * Static function to enter in the file location of the training data set
+	 */
 	static void enterTrainingData() {
 		
 		System.out.println("Enter the training data file:");
@@ -134,7 +155,10 @@ public class Menu
 		
 	}
 
-
+	/**
+	 * Static function to select the classifier 
+	 * @return the selected classifier
+	 */
 	static ClassifierNames pickClassifier(){
 		
 		int inputInt=0;
@@ -161,14 +185,22 @@ public class Menu
 		return classifier;
 	}
 
+	/**
+	 * Prints the  point orientation
+	 * @param orientation the integer equivalent of the orientation 
+	 */
 	static void PrintPredictedOrientation(int orientation)
 	{
 		
 		System.out.println("The device with those accelerometer vectors is oriented as " + getOrientationString(orientation));
-
 		
 	}
 
+	/**
+	 * Static function to convert the orientation integer to a string 
+	 * @param orientation Integer value representing a orientation 
+	 * @return A string of the orientation 
+	 */
 	public static String getOrientationString(int orientation) {
 		switch (orientation)
 		{
@@ -210,6 +242,9 @@ public class Menu
 		}
 		}
 	
+	/**
+	 * Cleaner function for the input scanner
+	 */
 	static void closeInputScanner()
 	{
 
