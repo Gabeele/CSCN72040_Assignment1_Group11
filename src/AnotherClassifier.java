@@ -1,4 +1,14 @@
-
+/**
+ * {@summary Class provides static methods another classifier}
+ * 
+ * @author Gavin Abeele
+ * @author Brayden Bowler
+ * @author Karl Stencell
+ * @author Thomas Horvath 
+ * 
+ * @version 1.0
+ * 
+ */
 public class AnotherClassifier extends Classifiers
 {
 
@@ -6,7 +16,7 @@ public class AnotherClassifier extends Classifiers
 	{
 
 		System.out.println("AnotherClassifier Predict method called");
-		return -1;
+		return 0;
 	}
 
 

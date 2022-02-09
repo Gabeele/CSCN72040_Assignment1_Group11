@@ -1,5 +1,16 @@
 import java.io.*;
 import java.util.Scanner;
+/**
+ * {@summary Class provides static methods data handling such as IO converting, converting file to a data set, and writing a data set to a file }
+ * 
+ * @author Gavin Abeele
+ * @author Brayden Bowler
+ * @author Karl Stencell
+ * @author Thomas Horvath 
+ * 
+ * @version 1.0
+ * 
+ */
 
 public class DataHandler
 {

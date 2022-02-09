@@ -1,4 +1,14 @@
-
+/**
+ * {@summary Class blueprint for a machine learning object and functions.}
+ * 
+ * @author Gavin Abeele
+ * @author Brayden Bowler
+ * @author Karl Stencell
+ * @author Thomas Horvath 
+ * 
+ * @version 1.0
+ * 
+ */
 public class MachineLearning 
 {
 

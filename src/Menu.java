@@ -1,6 +1,16 @@
-
 import java.util.Scanner;
 
+/**
+ * {@summary Class provides static methods for the user interface. Including user input, print menus, and facilitating actions on the controller}
+ * 
+ * @author Gavin Abeele
+ * @author Brayden Bowler
+ * @author Karl Stencell
+ * @author Thomas Horvath 
+ * 
+ * @version 1.0
+ * 
+ */
 public class Menu
 {
 
@@ -88,7 +98,7 @@ public class Menu
 	{
 		String inputString = null;
 		
-		System.out.println("Enter your vector separated by commas and no spaces: i.e. 1,2,3 ");
+		System.out.println("Enter your vector separated by commas and no spaces (eg. 1,2,3):");
 		
 		try
 		{

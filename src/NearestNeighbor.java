@@ -1,5 +1,17 @@
 import java.lang.Math;
 
+/**
+ * {@summary Class provides static methods for nearest neighbor ML algorithm}
+ * 
+ * @author Gavin Abeele
+ * @author Brayden Bowler
+ * @author Karl Stencell
+ * @author Thomas Horvath 
+ * 
+ * @version 1.0
+ * 
+ */
+
 public class NearestNeighbor extends Classifiers
 {
 	public static int Calculate(DataPoint dataPoint, DataSet trainingDataSet)

@@ -1,4 +1,14 @@
-
+/**
+ * {@summary Class provides static controller methods to facilitate data management, the UI, and the machine learning module}
+ * 
+ * @author Gavin Abeele
+ * @author Brayden Bowler
+ * @author Karl Stencell
+ * @author Thomas Horvath 
+ * 
+ * @version 1.0
+ * 
+ */
 public class Controller
 {
 
@@ -18,7 +28,9 @@ public class Controller
 		DataSet ds = DataHandler.fileToDataSet(filename);
 
 		for (int i = 0; i < ds.points.size(); i++) {
+			
 			ds.points.elementAt(i).setOrientation(learningModel.predictOrientation(ds.points.elementAt(i), classifier));
+			
 		}
 		
 		DataHandler.dataSetToFile(ds, filename);
