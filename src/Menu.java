@@ -24,6 +24,7 @@ public class Menu
 	{
 		System.out.println("\n------------------------------------------------------------");
 		System.out.println("Welcome to the program =]");
+		System.out.println("(Make sure to import training data before calculating)");
 		System.out.println("-------------------------------------------------------------");
 		System.out.println("    1. To calculate unknown data of a file (unknownData.txt)");
 		System.out.println("    2. To calculate unknown single point");

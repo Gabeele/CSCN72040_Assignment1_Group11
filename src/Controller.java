@@ -16,9 +16,9 @@ public class Controller
 	
 	/**
 	 * {@summary Facilitates the coordinates to a data point and prediction of orientation within the program}
-	 * @param input
-	 * @param classifier
-	 * @return
+	 * @param input Point unparsed
+	 * @param classifier The ML classifier 
+	 * @return An integer the orientation of the point
 	 */
 	public static int coordinateController(String input, ClassifierNames classifier)
 	{
@@ -30,8 +30,8 @@ public class Controller
 	
 	/**
 	 * {@summary Facilitates the creation of data sets based on the file name and classifier that it is provided}
-	 * @param filename
-	 * @param classifier
+	 * @param filename Name of the unknown data file
+	 * @param classifier The ML classifier type
 	 */
 	public static void fileController(String filename, ClassifierNames classifier)
 	{
@@ -40,6 +40,7 @@ public class Controller
 
 		for (int i = 0; i < ds.points.size(); i++) {
 			
+			//Drip into the ML class and sets the orientation
 			ds.points.elementAt(i).setOrientation(learningModel.predictOrientation(ds.points.elementAt(i), classifier));
 			
 		}
@@ -50,7 +51,7 @@ public class Controller
 	
 	/**
 	 * {@summary Facilitates the creation of data sets based on the file name that it is provided}
-	 * @param filename
+	 * @param filename File for training data
 	 */
 	public static void fileController(String filename)
 	{

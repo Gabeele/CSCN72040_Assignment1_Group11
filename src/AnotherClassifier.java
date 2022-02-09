@@ -16,7 +16,7 @@ public class AnotherClassifier extends Classifiers
 	 * another algorithm to use }
 	 * @param dataPoint
 	 * @param trainingDataSet
-	 * @return
+	 * @return 0
 	 */
 	public static int Calculate(DataPoint dataPoint, DataSet trainingDataSet)
 	{
@@ -29,7 +29,7 @@ public class AnotherClassifier extends Classifiers
 	 * that will override if there were another algorithm to use }
 	 * @param predictingPoint
 	 * @param testPoint
-	 * @return
+	 * @return 0.00
 	 */
 	protected static double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint)
 	{

@@ -14,9 +14,9 @@ public class Classifiers
 	/**
 	 * {@summary Method for other classes to implement and override so that the calculate function can change depending
 	 * on the algorithm that is being used}
-	 * @param dataPoint
-	 * @param trainingDataSet
-	 * @return
+	 * @param dataPoint A single point to be referenced by 
+	 * @param trainingDataSet The set of data to compare to 
+	 * @return An integer 
 	 */
 	public static int Calculate(DataPoint dataPoint, DataSet trainingDataSet) {
 		throw new IllegalArgumentException("Unexpected value");
@@ -25,8 +25,8 @@ public class Classifiers
 	/**
 	 * {@summary Method for other classes to implement and override so that the distanceBetweenDataPoints function can change depending
 	 * on the algorithm that is being used}
-	 * @param predictingPoint
-	 * @param testPoint
+	 * @param predictingPoint a single predicted point 
+	 * @param testPoint A compared predicted point 
 	 * @return
 	 */
 	protected static double distanceBetweenDataPoints(DataPoint predictingPoint, DataPoint testPoint) {
